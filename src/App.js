@@ -1,25 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import Countdown from './Countdown.js';
+import Pricing from './Pricing'
 class App extends Component {
   render() {
+    const currentDate = new Date();
+    const year = (currentDate.getMonth() === 11 && currentDate.getDate() > 23) ? currentDate.getFullYear() + 1 : currentDate.getFullYear();
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Countdown date={`2019-05-01T00:00:00`} />
+        <Pricing/>
       </div>
     );
   }
